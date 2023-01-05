@@ -24,7 +24,7 @@ Creates a Manhattan plot directly from a PLINK assoc output (or any data frame w
 
 #### Usage
 ```
-fastman (m, chr = "CHR", bp = "BP", p = "P", snp, chrlabs, speedup=TRUE, logp = TRUE, col="matlab", maxP=14, sortchr=TRUE, 
+fastman (m, chr = "CHR", bp = "BP", p = "P", snp, chrlabs, speedup=TRUE, logp = TRUE, col="matlab", maxP=NULL, sortchr=TRUE, 
         bybp=FALSE, chrsubset, bprange, highlight, annotateHighlight=FALSE, annotatePval, colAbovePval=FALSE, col2="greys",
         annotateTop=TRUE, annotationWinMb, annotateN, annotationCol, annotationAngle=45, baseline=NULL, suggestiveline,
         genomewideline, cex=0.4, cex.text=0.4, cex.axis=0.6, xlab, ylab, xlim, ylim, ...)
@@ -40,7 +40,7 @@ fastman (m, chr = "CHR", bp = "BP", p = "P", snp, chrlabs, speedup=TRUE, logp = 
 * **speedup** = A logical value; if TRUE, the function employs the faster method where input values at the extreme 0.2% are rounded to 3 digits, and the rest is rounded to 2 digits. The default value of this parameter is TRUE.
 * **logp**	= A logical value; if TRUE, negative logarithms (base 10) of p-values is plotted. In case the user wants to use FST score type data or logarithm of p-values directly, then logp must be stated to be FALSE, as the default value of this parameter is TRUE.
 * **col**	= A string indicating the color scheme of the plot. Defaults to “matlab”. There are various options available for user. See below for details.
-* **maxP**	= A numeric value indicating the maximum y-value till which user wants to visualize. The default value of this parameter is 14. If the data has negative values then both sides are truncated till the absolute value of the parameter. The user can provide NULL as input if truncation is not required.
+* **maxP**	= A numeric value indicating the maximum y-value till which user wants to visualize (value on the -log(P) scale). The default value of this parameter is NULL, which indicates no truncation. If the data has negative values then both sides are truncated till the absolute value of the parameter. 
 * **sortchr**	= A logical value; if TRUE, the table is sorted by chromosome number before plotting. If not specified by user, the function takes default value TRUE.
 * **bybp** = A logical value; if TRUE, the y-values are plotted against chromosome positions. In this case the table is not sorted by chromosome number before plotting. If not specified by user, the function takes default value FALSE. This feature is useful especially for plots where the user might be interested in studying the association p-values across contigs.
 * **chrsubset** = The subset of chromosome numbers to be plotted.
